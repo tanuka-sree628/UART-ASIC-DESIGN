@@ -85,49 +85,6 @@ F = 1 / T = 1 / 10 ns = 100 MHz
 
 LibreLane orchestrated the overall flow, with OpenROAD performing the underlying physical-design stages (floorplanning, placement, CTS, and routing) as part of that flow.
 
-
-
-## 🔄 RTL-to-GDSII Flow Diagram
-
-
- ┌─────────────┐
- │     RTL     │
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │   Synthesis │  (Yosys)
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │ Floorplanning│
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │  Placement  │
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │     CTS     │
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │   Routing   │  (Global + Detailed)
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │  Extraction │  (SPEF)
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │  STA/DRC/LVS│
- └──────┬──────┘
-        ▼
- ┌─────────────┐
- │    GDSII    │
- └─────────────┘
-
-
-
 ## 🔬 RTL Synthesis
 
 Synthesis converts the UART RTL into a gate-level netlist mapped to Sky130 standard cells, using Yosys.
@@ -164,7 +121,10 @@ Before proceeding to physical implementation, the UART RTL was functionally veri
 
 The waveform output confirmed that transmitted bytes were correctly reconstructed at the receiver, with `rx_data` matching the corresponding `tx_data` for each test case, and `rx_valid`/`tx_busy` asserting at the expected cycle boundaries.
 
-Simulation waveform: `results/images/vivado_sim.png`
+Simulation waveform: 
+
+![Simulation](results/images/Simulation.png)
+
 Testbench: `sim/uart_top_tb.v`
 
 
