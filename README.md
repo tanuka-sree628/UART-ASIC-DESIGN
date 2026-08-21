@@ -1,4 +1,4 @@
-```markdown
+
 # UART ASIC: RTL-to-GDSII Physical Design using SKY130A
 
 ## 📋 Project Overview
@@ -7,7 +7,7 @@ This project implements an 8-bit UART (Universal Asynchronous Receiver/Transmitt
 
 The design was implemented through the following stages:
 
-```
+
 RTL
   → Yosys Synthesis
   → Floorplanning
@@ -19,11 +19,11 @@ RTL
   → DRC
   → LVS
   → Final GDSII Generation
-```
+
 
 The implementation targets the **SkyWater SKY130A** open-source process design kit, using the **sky130_fd_sc_hd** standard-cell library. The project demonstrates a full digital ASIC implementation flow rather than stopping at RTL synthesis alone.
 
----
+
 
 ## 🧩 Design Architecture / RTL Modules
 
@@ -49,7 +49,7 @@ The UART design consists of the following Verilog modules:
 | `rx_valid` | Output | Indicates valid received data |
 | `tx_busy` | Output | Indicates transmitter is active |
 
----
+
 
 ## ⚙️ Design Parameters
 
@@ -68,7 +68,7 @@ The 10 ns clock period corresponds to a target operating frequency of:
 F = 1 / T = 1 / 10 ns = 100 MHz
 ```
 
----
+
 
 ## 🛠️ Tools and Technologies
 
@@ -85,11 +85,11 @@ F = 1 / T = 1 / 10 ns = 100 MHz
 
 LibreLane orchestrated the overall flow, with OpenROAD performing the underlying physical-design stages (floorplanning, placement, CTS, and routing) as part of that flow.
 
----
+
 
 ## 🔄 RTL-to-GDSII Flow Diagram
 
-```
+
  ┌─────────────┐
  │     RTL     │
  └──────┬──────┘
@@ -125,9 +125,8 @@ LibreLane orchestrated the overall flow, with OpenROAD performing the underlying
  ┌─────────────┐
  │    GDSII    │
  └─────────────┘
-```
 
----
+
 
 ## 🔬 RTL Synthesis
 
@@ -148,7 +147,7 @@ The synthesized netlist includes standard cells such as flip-flops, AND, OR, NAN
 
 Report: `results/reports/synthesis_stat.rpt`
 
----
+
 ## 🧪 Functional Simulation (Vivado)
 
 Before proceeding to physical implementation, the UART RTL was functionally verified through simulation in Xilinx Vivado. This step confirms correct logical behavior of `uart_top` independent of the physical-design flow — Vivado was used here strictly for simulation, not for FPGA synthesis or deployment.
@@ -168,7 +167,7 @@ The waveform output confirmed that transmitted bytes were correctly reconstructe
 Simulation waveform: `results/images/vivado_sim.png`
 Testbench: `sim/uart_top_tb.v`
 
----
+
 
 ## 🗺️ Floorplanning
 
@@ -182,8 +181,6 @@ This is an early physical-design checkpoint showing only the die/core definition
 
 *Figure: Initial floorplan showing the die and core boundaries.*
 
----
-
 ## 📍 Placement
 
 Placement physically positions the synthesized standard cells within the defined core area, aiming for a routable and timing-aware arrangement that minimizes wirelength and congestion.
@@ -194,7 +191,7 @@ Checkpoint used: `34-openroad-detailedplacement/uart_top.odb`
 
 *Figure: Standard-cell placement after detailed placement.*
 
----
+
 
 ## ⏱️ Clock Tree Synthesis (CTS)
 
@@ -216,7 +213,7 @@ Report: `results/reports/cts.rpt`
 
 *Figure: Clock Tree Synthesis stage.*
 
----
+
 
 ## 🔌 Routing
 
@@ -231,7 +228,7 @@ The detailed-routing ODB represents the fully routed physical implementation.
 
 *Figure: Detailed routing stage showing the routed physical implementation.*
 
----
+
 
 ## 📐 Parasitic Extraction
 
@@ -247,7 +244,7 @@ final/spef/nom/uart_top.nom.spef
 
 These files represent extracted interconnect parasitics for timing purposes; they are not a layout representation themselves.
 
----
+
 
 ## ⏳ Post-Route Static Timing Analysis (STA)
 
@@ -274,7 +271,7 @@ Some OpenSTA warnings were encountered regarding certain physical-only/library c
 
 Report: `results/reports/post_route_sta.rpt`
 
----
+
 
 ## 📏 Design Rule Check (DRC)
 
@@ -295,7 +292,6 @@ DRC verifies that the physical layout obeys the SKY130 manufacturing rules, incl
 
 Report: `results/reports/drc.rpt`
 
----
 
 ## 🔍 Layout Versus Schematic (LVS)
 
@@ -316,7 +312,6 @@ This confirms layout-netlist correspondence only, not silicon-level verification
 
 Report: `results/reports/lvs.rpt`
 
----
 
 ## 🏁 Final GDSII
 
@@ -332,7 +327,7 @@ This project produced a final GDSII layout as an academic RTL-to-GDSII exercise.
 
 *Figure: Final UART GDSII layout viewed in KLayout.*
 
----
+
 
 ## 🗂️ ODB, DEF, and GDSII
 
@@ -340,7 +335,7 @@ This project produced a final GDSII layout as an academic RTL-to-GDSII exercise.
 - **DEF** — A textual physical-design exchange format describing placement, connectivity, routing, and physical information.
 - **GDSII** — The final layout/mask representation of the design.
 
----
+
 
 ## 📊 Final Results Table
 
@@ -360,7 +355,6 @@ This project produced a final GDSII layout as an academic RTL-to-GDSII exercise.
 | LVS | PASS — Circuits match uniquely |
 | Final GDSII | Generated |
 
----
 
 ## 📁 Repository Structure
 
@@ -399,7 +393,7 @@ uart-asic-rtl-to-gdsii/
 └── README.md
 ```
 
----
+
 
 ## 🎓 Key Learning Outcomes
 
@@ -410,15 +404,15 @@ uart-asic-rtl-to-gdsii/
 - Built familiarity with the SKY130A open-source PDK and the sky130_fd_sc_hd standard-cell library.
 - Developed practical experience with the LibreLane/OpenROAD toolchain, including ODB, DEF, and GDSII data representations.
 
----
+
 
 ## 📌 Conclusion
 
 This project demonstrates a complete academic implementation of an 8-bit UART design, carried from RTL through synthesis, physical implementation, verification, and final GDSII generation using the open-source SKY130A ASIC flow. All reported results — synthesis statistics, timing analysis, DRC, and LVS checks — were generated as part of this implementation and verification process. No fabrication or silicon validation was performed; this is strictly an RTL-to-GDSII physical-design exercise.
 
----
+
 
 ## 🧰 Tools & Technologies
 
 `Verilog` `Yosys` `LibreLane` `OpenROAD` `OpenSTA` `KLayout` `SKY130A` `Nix`
-```
+
