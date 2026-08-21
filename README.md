@@ -123,7 +123,7 @@ The waveform output confirmed that transmitted bytes were correctly reconstructe
 
 Simulation waveform: 
 
-![Simulation](results/images/Simulation.png)
+![Simulation](results/images/Simulation.jpeg)
 
 Testbench: `sim/uart_top_tb.v`
 
@@ -137,7 +137,7 @@ Checkpoint used for visualization: `13-openroad-floorplan/uart_top.odb`
 
 This is an early physical-design checkpoint showing only the die/core definition — it is not the final routed layout.
 
-![Floorplan](results/images/floorplan.png)
+![Floorplan](results/images/floorplan.jpeg)
 
 *Figure: Initial floorplan showing the die and core boundaries.*
 
@@ -147,7 +147,7 @@ Placement physically positions the synthesized standard cells within the defined
 
 Checkpoint used: `34-openroad-detailedplacement/uart_top.odb`
 
-![Placement](results/images/placement.png)
+![Placement](results/images/placement.jpeg)
 
 *Figure: Standard-cell placement after detailed placement.*
 
@@ -169,7 +169,7 @@ CTS builds a clock distribution network that delivers the clock signal to all se
 Checkpoint used: `35-openroad-cts/uart_top.odb`
 Report: `results/reports/cts.rpt`
 
-![Clock Tree Synthesis](results/images/cts.png)
+![Clock Tree Synthesis](results/images/cts.jpeg)
 
 *Figure: Clock Tree Synthesis stage.*
 
@@ -184,7 +184,7 @@ Routing occurs in two stages:
 
 The detailed-routing ODB represents the fully routed physical implementation.
 
-![Detailed Routing](results/images/routing.png)
+![Detailed Routing](results/images/routing.jpeg)
 
 *Figure: Detailed routing stage showing the routed physical implementation.*
 
@@ -283,18 +283,9 @@ The final layout was inspected using KLayout.
 
 This project produced a final GDSII layout as an academic RTL-to-GDSII exercise. No fabrication or tapeout was performed.
 
-![Final GDSII Layout](results/images/final_layout.png)
+![Final GDSII Layout](results/images/final_layout.jpeg)
 
 *Figure: Final UART GDSII layout viewed in KLayout.*
-
-
-
-## 🗂️ ODB, DEF, and GDSII
-
-- **ODB** — OpenROAD's internal database representation of the physical design, used for inspecting intermediate physical-design checkpoints.
-- **DEF** — A textual physical-design exchange format describing placement, connectivity, routing, and physical information.
-- **GDSII** — The final layout/mask representation of the design.
-
 
 
 ## 📊 Final Results Table
@@ -336,11 +327,11 @@ uart-asic-rtl-to-gdsii/
 │
 ├── results/
 │   ├── images/
-│   │   ├── floorplan.png
-│   │   ├── placement.png
-│   │   ├── cts.png
-│   │   ├── routing.png
-│   │   └── final_layout.png
+│   │   ├── floorplan.jpeg
+│   │   ├── placement.jpeg
+│   │   ├── cts.jpeg
+│   │   ├── routing.jpeg
+│   │   └── final_layout.jpeg
 │   │
 │   └── reports/
 │       ├── synthesis_stat.rpt
